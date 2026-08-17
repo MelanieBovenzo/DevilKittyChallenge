@@ -6,7 +6,9 @@ public class EnemyController : MonoBehaviour
     Transform playerTransform;
     Vector3 playerPosition;
     Vector3 direction;
-    [SerializeField] float speed;
+    public float speed;
+    public float health;
+    public float damage;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,6 +21,16 @@ public class EnemyController : MonoBehaviour
     {
         playerPosition = playerTransform.position;
         direction = (playerPosition - transform.position).normalized;
-        transform.position += direction * speed;
+        transform.Translate(direction * speed * Time.deltaTime);
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void TakeDamage(float dmg)
+    {
+        health -= dmg;
     }
 }

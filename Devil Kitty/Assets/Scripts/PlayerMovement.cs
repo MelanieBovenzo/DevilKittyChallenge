@@ -1,7 +1,7 @@
 using UnityEngine;
 using Unity;
 
-public class PlayerMovementController : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float speed;
 
@@ -14,9 +14,9 @@ public class PlayerMovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float xMove = Input.GetAxis("Horizontal");
-        float yMove = Input.GetAxis("Vertical");
+        float xMove = Input.GetAxisRaw("Horizontal");
+        float yMove = Input.GetAxisRaw("Vertical");
 
-        transform.position += new Vector3(xMove, yMove, 0).normalized * speed;
+        transform.Translate(new Vector3(xMove, yMove, 0).normalized * speed * Time.deltaTime);
     }
 }

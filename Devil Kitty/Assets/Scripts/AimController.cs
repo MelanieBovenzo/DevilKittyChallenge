@@ -4,11 +4,15 @@ using UnityEngine.UIElements;
 public class AimController : MonoBehaviour
 {
     [SerializeField] Transform aimTransform;
+    [SerializeField] Transform aim2Transform;
+    [SerializeField] Transform aim3Transform;
+
+    public Transform center;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     public GameObject FindClosestEnemy()
@@ -17,7 +21,7 @@ public class AimController : MonoBehaviour
         enemyList = GameObject.FindGameObjectsWithTag("Enemy");
         GameObject closest = null;
         float distance = Mathf.Infinity;
-        Vector3 position = transform.position;
+        Vector3 position = center.position;
         foreach (GameObject enemy in enemyList)
         {
             Vector3 diff = enemy.transform.position - position;
@@ -32,13 +36,18 @@ public class AimController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        Vector3 closestPosition = FindClosestEnemy().transform.position;
+        if (FindClosestEnemy() != null)
+        {
+            Vector3 closestPosition = FindClosestEnemy().transform.position;
 
-        Vector3 diff = closestPosition - transform.position;
-        diff.Normalize();
-        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-        aimTransform.rotation = Quaternion.Euler(0f, 0f, rot_z);
+            Vector3 diff = closestPosition - center.position;
+            diff.Normalize();
+            float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+            aimTransform.rotation = Quaternion.Euler(0f, 0f, rot_z);
+            aim2Transform.rotation = Quaternion.Euler(0f, 0f, rot_z + 30);
+            aim3Transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 30);
+        }
     }
 }
