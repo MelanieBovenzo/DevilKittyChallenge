@@ -19,16 +19,7 @@ public class XPController : MonoBehaviour
             Vector2 dir = (playerTransform.position - transform.position).normalized;
             transform.Translate(dir * Time.deltaTime * XPSpeed);
         }
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            collision.gameObject.GetComponent<PlayerExperience>().xp += 1;
-            Destroy(gameObject);
-        }
-    }
+    } 
 
     public void FollowPlayer(Transform pt, float speed)
     {

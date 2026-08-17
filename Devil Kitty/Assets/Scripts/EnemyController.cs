@@ -5,9 +5,11 @@ public class EnemyController : MonoBehaviour
     Transform playerTransform;
     Vector3 playerPosition;
     Vector3 direction;
+
     public float speed;
     public float health;
     public float damage;
+
 
     [SerializeField] GameObject XP;
 
