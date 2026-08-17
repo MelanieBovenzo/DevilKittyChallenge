@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
@@ -9,6 +8,8 @@ public class EnemyController : MonoBehaviour
     public float speed;
     public float health;
     public float damage;
+
+    [SerializeField] GameObject XP;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,6 +26,7 @@ public class EnemyController : MonoBehaviour
 
         if (health <= 0)
         {
+            Instantiate(XP, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
