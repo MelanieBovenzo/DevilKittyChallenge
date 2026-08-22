@@ -33,6 +33,14 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            other.gameObject.GetComponent<PlayerHealth>().PlayerDamage(damage);
+        }
+    }
+
     public void TakeDamage(float dmg)
     {
         health -= dmg;
