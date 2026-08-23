@@ -22,7 +22,7 @@ public class SpawningManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
 
-        spawnTargets[Random.Range(0, 5)].Spawn();
+        spawnTargets[Random.Range(0, 6)].Spawn();
 
         StartCoroutine(spawnInRandomPos());
     }
