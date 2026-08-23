@@ -12,10 +12,12 @@ public class PlayerExperience : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI xpText;
     [SerializeField] TextMeshProUGUI levelText;
+
+    [SerializeField] GameObject levelCanvas;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -24,16 +26,18 @@ public class PlayerExperience : MonoBehaviour
         xpText.text = "XP: " + xp.ToString();
         levelText.text = "NÍVEL: " + level.ToString() + "\n XP Restate: " + (Mathf.Ceil(Mathf.Pow(level * 1.1f, 2) + 10) - xp);
 
-        if (xp >= Mathf.Ceil(Mathf.Pow(level * 1.1f,2) + 10))
+        if (xp >= Mathf.Ceil(Mathf.Pow(level * 1.1f, 2) + 10))
         {
             xp = 0;
             level++;
+
+            levelCanvas.SetActive(true);
         }
     }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.gameObject.CompareTag("Collectable"))
+        if (collider.gameObject.CompareTag("Collectable"))
         {
             collider.gameObject.GetComponent<XPController>().FollowPlayer(transform, XPSpeed);
         }
