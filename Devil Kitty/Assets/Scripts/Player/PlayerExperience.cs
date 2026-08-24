@@ -32,6 +32,7 @@ public class PlayerExperience : MonoBehaviour
             level++;
 
             levelCanvas.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 

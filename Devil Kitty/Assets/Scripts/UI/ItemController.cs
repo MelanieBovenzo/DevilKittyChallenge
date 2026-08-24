@@ -7,17 +7,23 @@ public class ItemController : MonoBehaviour
 {
     public int itemTag;
     private string displayName;
-    public Sprite itemImage;
+    private Sprite itemImage;
 
     [SerializeField] TextMeshProUGUI nameText;
     [SerializeField] PlayerInventory playerInventory;
+
+    [SerializeField] GameObject levelCanvas;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void OnBuy()
     {
-        playerInventory.heldItems.Add(itemTag);
+        playerInventory.AddItem(itemTag);
+
+        levelCanvas.SetActive(false);
+        Time.timeScale = 1;
+
     }
 
-    void OnEnable()
+    void Update()
     {
         switch (itemTag)
         {

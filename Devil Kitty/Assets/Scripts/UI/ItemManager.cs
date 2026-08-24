@@ -25,18 +25,18 @@ public class ItemManager : MonoBehaviour
 
     void OnEnable()
     {
-        int random = Random.Range(0, 3);
+        int random = Random.Range(1, 4);
         item1.itemTag = random;
 
         while (random == item1.itemTag)
         {
-            random = Random.Range(0, 3);
+            random = Random.Range(1, 4);
         }
         item2.itemTag = random;
 
         while (random == item1.itemTag || random == item2.itemTag)
         {
-            random = Random.Range(0, 3);
+            random = Random.Range(1, 4);
         }
         item3.itemTag = random;
     }

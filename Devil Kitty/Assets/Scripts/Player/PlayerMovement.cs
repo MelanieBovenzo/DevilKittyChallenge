@@ -3,7 +3,7 @@ using Unity;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float speed;
+    public float speed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

@@ -4,7 +4,7 @@ public class GunController : MonoBehaviour
 {
     public float shotDelay;
     public float damage;
-    public string weaponType;
+    public int weaponType;
     public float bulletSpeed;
     public float range;
 
@@ -23,13 +23,13 @@ public class GunController : MonoBehaviour
     {
         switch (weaponType)
         {
-            case "laser":
+            case 2:
                 GameObject curBullet = Instantiate(bullet, transform.position, transform.rotation);
                 curBullet.transform.Rotate(new Vector3(0, 0, -90));
                 curBullet.GetComponent<BulletController>().damage = damage;
                 curBullet.GetComponent<BulletController>().speed = bulletSpeed;
                 break;
-            case "sword":
+            case 1:
                 break;
             default:
                 Debug.Log("Invalid Weapon Type!");
@@ -45,7 +45,6 @@ public class GunController : MonoBehaviour
         if (aimController.FindClosestEnemy() != null)
         {
             distance = Vector2.Distance(aimController.FindClosestEnemy().transform.position, aimController.center.position);
-            Debug.Log(distance);
         }
         else
         {
