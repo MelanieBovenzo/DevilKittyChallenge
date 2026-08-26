@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -40,6 +41,11 @@ public class EnemyController : MonoBehaviour
             
             other.gameObject.GetComponent<PlayerHealth>().PlayerDamage(damage);
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        TakeDamage(other.GetComponent<GunController>().damage);
     }
 
     public void TakeDamage(float dmg)

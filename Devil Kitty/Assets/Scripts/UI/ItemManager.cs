@@ -15,6 +15,7 @@ public class ItemManager : MonoBehaviour
     [SerializeField] Sprite item1Sprite;
     [SerializeField] Sprite item2Sprite;
     [SerializeField] Sprite item3Sprite;
+    [SerializeField] Sprite item4Sprite;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,22 +30,22 @@ public class ItemManager : MonoBehaviour
 
     void OnEnable()
     {
-        int random = Random.Range(1, 4);
+        int random = Random.Range(1, 5);
         item1.itemTag = random;
 
         while (random == item1.itemTag)
         {
-            random = Random.Range(1, 4);
+            random = Random.Range(1, 5);
         }
         item2.itemTag = random;
 
         while (random == item1.itemTag || random == item2.itemTag)
         {
-            random = Random.Range(1, 4);
+            random = Random.Range(1, 5);
         }
         item3.itemTag = random;
 
-        switch(item1.itemTag)
+        switch (item1.itemTag)
         {
             case 1:
                 item1.GetComponent<UnityEngine.UI.Image>().sprite = item1Sprite;
@@ -54,6 +55,9 @@ public class ItemManager : MonoBehaviour
                 break;
             case 3:
                 item1.GetComponent<UnityEngine.UI.Image>().sprite = item3Sprite;
+                break;
+            case 4:
+                item1.GetComponent<UnityEngine.UI.Image>().sprite = item4Sprite;
                 break;
         }
         switch (item2.itemTag)
@@ -67,6 +71,9 @@ public class ItemManager : MonoBehaviour
             case 3:
                 item2.GetComponent<UnityEngine.UI.Image>().sprite = item3Sprite;
                 break;
+            case 4:
+                item2.GetComponent<UnityEngine.UI.Image>().sprite = item4Sprite;
+                break;
         }
         switch (item3.itemTag)
         {
@@ -78,6 +85,9 @@ public class ItemManager : MonoBehaviour
                 break;
             case 3:
                 item3.GetComponent<UnityEngine.UI.Image>().sprite = item3Sprite;
+                break;
+            case 4:
+                item3.GetComponent<UnityEngine.UI.Image>().sprite = item4Sprite;
                 break;
         }
     }

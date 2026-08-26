@@ -35,6 +35,9 @@ public class ItemController : MonoBehaviour
             case 3:
                 displayName = "+1 dano";
                 break;
+            case 4:
+                displayName = "Lança Doce";
+                break;
             default:
                 displayName = "ERRO!";
                 break;

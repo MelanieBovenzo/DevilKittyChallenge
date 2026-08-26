@@ -6,14 +6,20 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] float startingHealth;
     [SerializeField] float startingIFrames;
+
     [SerializeField] SpriteRenderer playerSprite;
+
     public float health;
+    public float maxHealth;
     private bool invul = false;
     [HideInInspector] public float iFrameTime;
+
+    [SerializeField] RectTransform healthBar;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         health = startingHealth;
+        maxHealth = startingHealth;
         iFrameTime = startingIFrames;
     }
 
@@ -29,6 +35,8 @@ public class PlayerHealth : MonoBehaviour
             Destroy(gameObject);
             SceneManager.LoadScene("MenuScene");
         }
+
+        healthBar.sizeDelta = new Vector2(health/maxHealth * 106, 6);
     }
 
     private void RemoveInvul()
