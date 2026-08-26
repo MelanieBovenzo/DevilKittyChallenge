@@ -7,7 +7,6 @@ public class ItemController : MonoBehaviour
 {
     public int itemTag;
     private string displayName;
-    private Sprite itemImage;
 
     [SerializeField] TextMeshProUGUI nameText;
     [SerializeField] PlayerInventory playerInventory;
@@ -42,6 +41,5 @@ public class ItemController : MonoBehaviour
         }
 
         nameText.text = displayName;
-        GetComponent<Image>().sprite = itemImage;
     }
 }

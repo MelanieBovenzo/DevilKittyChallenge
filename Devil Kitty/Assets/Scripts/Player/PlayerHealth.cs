@@ -7,7 +7,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] float startingHealth;
     [SerializeField] float startingIFrames;
     [SerializeField] SpriteRenderer playerSprite;
-    [HideInInspector] public float health;
+    public float health;
     private bool invul = false;
     [HideInInspector] public float iFrameTime;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

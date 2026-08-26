@@ -37,6 +37,7 @@ public class EnemyController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            
             other.gameObject.GetComponent<PlayerHealth>().PlayerDamage(damage);
         }
     }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GunController : MonoBehaviour
@@ -13,10 +14,16 @@ public class GunController : MonoBehaviour
     [SerializeField] AimController aimController;
     private bool canShoot;
 
+    private Animator animator;
+
+    public bool isSwinging = false;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Shoot();
+        animator = GetComponent<Animator>();
+        canShoot = false;
+        Invoke("AllowShoot", shotDelay);
     }
 
     void Shoot()
@@ -30,6 +37,9 @@ public class GunController : MonoBehaviour
                 curBullet.GetComponent<BulletController>().speed = bulletSpeed;
                 break;
             case 1:
+                animator.SetBool("Swinging", true);
+                isSwinging = true;
+                GetComponent<BoxCollider2D>().enabled = true;
                 break;
             default:
                 Debug.Log("Invalid Weapon Type!");
@@ -37,6 +47,13 @@ public class GunController : MonoBehaviour
         }
         canShoot = false;
         Invoke("AllowShoot", shotDelay);
+    }
+
+    void StopSwing()
+    {
+        isSwinging = false;
+        GetComponent<BoxCollider2D>().enabled = false;
+        animator.SetBool("Swinging", false);
     }
 
     void Update()
@@ -58,5 +75,13 @@ public class GunController : MonoBehaviour
     void AllowShoot()
     {
         canShoot = true;
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.gameObject.tag = "Untagged";
+            collision.gameObject.GetComponent<EnemyController>().TakeDamage(damage);
+        }
     }
 }
