@@ -38,6 +38,9 @@ public class ItemController : MonoBehaviour
             case 4:
                 displayName = "Lança Doce";
                 break;
+            case 5:
+                displayName = "Martelo de Pirulito";
+                break;
             default:
                 displayName = "ERRO!";
                 break;

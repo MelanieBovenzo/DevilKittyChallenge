@@ -14,6 +14,7 @@ public class PlayerExperience : MonoBehaviour
     [SerializeField] TextMeshProUGUI levelText;
 
     [SerializeField] GameObject levelCanvas;
+    [SerializeField] ItemManager itemManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,14 +25,15 @@ public class PlayerExperience : MonoBehaviour
     void Update()
     {
         xpText.text = "XP: " + xp.ToString();
-        levelText.text = "NÍVEL: " + level.ToString() + "\n XP Restate: " + (Mathf.Ceil(Mathf.Pow(level * 1.1f, 2) + 10) - xp);
+        levelText.text = "NÍVEL: " + level.ToString() + "\n XP Restate: " + (Mathf.Ceil(Mathf.Pow((level - 1) * 1.1f, 2) + 10) - xp);
 
-        if (xp >= Mathf.Ceil(Mathf.Pow(level * 1.1f, 2) + 10))
+        if (xp >= Mathf.Ceil(Mathf.Pow((level-1) * 1.1f, 2) + 10))
         {
             xp = 0;
             level++;
 
             levelCanvas.SetActive(true);
+            itemManager.LevelUp();
             Time.timeScale = 0;
         }
     }

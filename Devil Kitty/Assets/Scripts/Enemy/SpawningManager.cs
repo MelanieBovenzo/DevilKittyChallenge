@@ -20,7 +20,7 @@ public class SpawningManager : MonoBehaviour
 
     IEnumerator spawnInRandomPos()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(Mathf.Pow(xp.level, -0.4f));
 
         spawnTargets[Random.Range(0, 6)].Spawn();
 

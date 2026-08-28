@@ -45,7 +45,10 @@ public class EnemyController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        TakeDamage(other.GetComponent<GunController>().damage);
+        if (other.GetComponent<GunController>() != null)
+        {
+            TakeDamage(other.GetComponent<GunController>().damage);
+        }
     }
 
     public void TakeDamage(float dmg)

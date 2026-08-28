@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    bool hasLaser = false;
-    bool hasSword = false;
-    bool hasSpear = false;
+    public bool hasLaser = false;
+    public bool hasSword = false;
+    public bool hasSpear = false;
+    public bool hasHammer = false;
     private PlayerBuffs buff;
 
     [SerializeField] GunController gun1;
@@ -16,8 +17,11 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] Sprite wpn1Sprite;
     [SerializeField] Sprite wpn2Sprite;
     [SerializeField] Sprite wpn4Sprite;
+    [SerializeField] Sprite wpn5Sprite;
 
     private int damageBuffCount;
+
+    public int weaponCount = 1;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,6 +38,7 @@ public class PlayerInventory : MonoBehaviour
                 if (!hasSword)
                 {
                     hasSword = true;
+                    weaponCount++;
                     if (gun2.gameObject.activeSelf == false)
                     {
                         gun2.gameObject.SetActive(true);
@@ -64,11 +69,12 @@ public class PlayerInventory : MonoBehaviour
                 if (!hasLaser)
                 {
                     hasLaser = true;
+                    weaponCount++;
                     if (gun2.gameObject.activeSelf == false)
                     {
                         gun2.gameObject.SetActive(true);
                         gun2.shotDelay = 1.5f;
-                        gun2.damage = 6 + damageBuffCount;
+                        gun2.damage = 10 + damageBuffCount;
                         gun2.weaponType = 2;
                         gun2.bulletSpeed = 10;
                         gun2.range = 4.5f;
@@ -79,7 +85,7 @@ public class PlayerInventory : MonoBehaviour
                     {
                         gun3.gameObject.SetActive(true);
                         gun3.shotDelay = 1.5f;
-                        gun3.damage = 6 + damageBuffCount;
+                        gun3.damage = 10 + damageBuffCount;
                         gun3.weaponType = 2;
                         gun3.bulletSpeed = 10;
                         gun3.range = 4.5f;
@@ -100,6 +106,7 @@ public class PlayerInventory : MonoBehaviour
                 if (!hasSpear)
                 {
                     hasSpear = true;
+                    weaponCount++;
                     if (gun2.gameObject.activeSelf == false)
                     {
                         gun2.gameObject.SetActive(true);
@@ -128,6 +135,40 @@ public class PlayerInventory : MonoBehaviour
                     buff.WeaponBuff("spear", 0.1f);
                 }
                 break;
+            case 5:
+                if (!hasHammer)
+                {
+                    hasHammer = true;
+                    weaponCount++;
+                    if (gun2.gameObject.activeSelf == false)
+                    {
+                        gun2.gameObject.SetActive(true);
+                        gun2.shotDelay = 1.8f;
+                        gun2.damage = 7 + damageBuffCount;
+                        gun2.weaponType = 5;
+                        gun2.bulletSpeed = 10;
+                        gun2.range = 2.5f;
+                        gun2.gameObject.GetComponent<SpriteRenderer>().sprite = wpn5Sprite;
+                        gun2.gameObject.GetComponent<SpriteRenderer>().size = new Vector2(1, 0.35f);
+                    }
+                    else
+                    {
+                        gun3.gameObject.SetActive(true);
+                        gun3.shotDelay = 1.8f;
+                        gun3.damage = 8 + damageBuffCount;
+                        gun3.weaponType = 5;
+                        gun3.bulletSpeed = 10;
+                        gun3.range = 2.5f;
+                        gun3.gameObject.GetComponent<SpriteRenderer>().sprite = wpn5Sprite;
+                        gun3.gameObject.GetComponent<SpriteRenderer>().size = new Vector2(1, 0.35f);
+                    }
+                }
+                else
+                {
+                    buff.WeaponBuff("hammer", 0.1f);
+                }
+                break;
+
         }
     }
 }

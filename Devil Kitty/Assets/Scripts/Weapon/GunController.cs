@@ -46,6 +46,11 @@ public class GunController : MonoBehaviour
                 isSwinging = true;
                 GetComponent<BoxCollider2D>().enabled = true;
                 break;
+            case 5:
+                animator.SetBool("SwingingSword", true);
+                isSwinging = true;
+                GetComponent<BoxCollider2D>().enabled = true;
+                break;
             default:
                 Debug.Log("Invalid Weapon Type!");
                 break;
@@ -58,7 +63,7 @@ public class GunController : MonoBehaviour
     {
         isSwinging = false;
         GetComponent<BoxCollider2D>().enabled = false;
-        if (weaponType == 1)
+        if (weaponType == 1 || weaponType == 5)
         {
             animator.SetBool("SwingingSword", false);
         }
