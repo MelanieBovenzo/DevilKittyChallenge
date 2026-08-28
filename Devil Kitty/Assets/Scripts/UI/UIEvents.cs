@@ -23,6 +23,11 @@ public class UIEvents : MonoBehaviour
         SceneManager.LoadScene("GameScene");
     }
 
+    public void CloseButton()
+    {
+        Application.Quit();
+    }
+
     public void VolumeSlider(float value)
     {
         audioMixer.SetFloat("MasterVolume", value);
