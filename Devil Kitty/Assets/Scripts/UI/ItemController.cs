@@ -12,14 +12,15 @@ public class ItemController : MonoBehaviour
     [SerializeField] PlayerInventory playerInventory;
 
     [SerializeField] GameObject levelCanvas;
+
+    [SerializeField] DialogueController dialogueController;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void OnBuy()
     {
         playerInventory.AddItem(itemTag);
 
         levelCanvas.SetActive(false);
-        Time.timeScale = 1;
-
+        dialogueController.isTalking = false;
     }
 
     void Update()

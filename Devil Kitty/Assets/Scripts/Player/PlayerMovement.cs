@@ -3,6 +3,7 @@ using Unity;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] DialogueController dialogueController;
     public float speed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -17,6 +18,9 @@ public class PlayerMovement : MonoBehaviour
         float xMove = Input.GetAxisRaw("Horizontal");
         float yMove = Input.GetAxisRaw("Vertical");
 
-        transform.Translate(new Vector3(xMove, yMove, 0).normalized * speed * Time.deltaTime);
+        if (!dialogueController.isTalking)
+        {
+            transform.Translate(new Vector3(xMove, yMove, 0).normalized * speed * Time.deltaTime);
+        }
     }
 }

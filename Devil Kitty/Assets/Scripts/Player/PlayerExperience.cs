@@ -15,6 +15,8 @@ public class PlayerExperience : MonoBehaviour
 
     [SerializeField] GameObject levelCanvas;
     [SerializeField] ItemManager itemManager;
+    
+    [SerializeField] DialogueController dialogueController;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,7 +36,17 @@ public class PlayerExperience : MonoBehaviour
 
             levelCanvas.SetActive(true);
             itemManager.LevelUp();
-            Time.timeScale = 0;
+            dialogueController.isTalking = true;
+
+            if(level == 2)
+            {
+                dialogueController.StartDialogue(2);
+            }
+
+            if (level == 15)
+            {
+                dialogueController.StartDialogue(4);
+            }
         }
     }
 

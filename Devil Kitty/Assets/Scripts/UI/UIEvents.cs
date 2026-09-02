@@ -32,4 +32,5 @@ public class UIEvents : MonoBehaviour
     {
         audioMixer.SetFloat("MasterVolume", value);
     }
+
 }

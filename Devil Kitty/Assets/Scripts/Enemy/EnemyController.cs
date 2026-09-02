@@ -11,13 +11,14 @@ public class EnemyController : MonoBehaviour
     public float health;
     public float damage;
 
-
     [SerializeField] GameObject XP;
+    DialogueController dialogueController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        dialogueController = GameObject.FindGameObjectWithTag("DialogueController").GetComponent<DialogueController>();
     }
 
     // Update is called once per frame
@@ -25,7 +26,11 @@ public class EnemyController : MonoBehaviour
     {
         playerPosition = playerTransform.position;
         direction = (playerPosition - transform.position).normalized;
-        transform.Translate(direction * speed * Time.deltaTime);
+
+        if (!dialogueController.isTalking)
+        { 
+            transform.Translate(direction * speed * Time.deltaTime); 
+        }
 
         if (health <= 0)
         {

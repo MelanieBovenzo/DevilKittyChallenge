@@ -15,6 +15,10 @@ public class PlayerHealth : MonoBehaviour
     [HideInInspector] public float iFrameTime;
 
     [SerializeField] RectTransform healthBar;
+
+    [SerializeField] DialogueController dialogueController;
+
+    private bool dead = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,13 +30,13 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (invul)
-        {
-            Invoke("RemoveInvul", iFrameTime);
-        }
         if (health <= 0)
         {
-            SceneManager.LoadScene("MenuScene");
+            if (!dead)
+            {
+                dead = true;
+                dialogueController.StartDialogue(3); 
+            }
         }
 
         healthBar.sizeDelta = new Vector2(health/maxHealth * 106, 6);
@@ -48,6 +52,7 @@ public class PlayerHealth : MonoBehaviour
         if (!invul)
         {
             invul = true;
+            Invoke("RemoveInvul", iFrameTime);
             health -= dmg;
             StartCoroutine(iFrames());
         }

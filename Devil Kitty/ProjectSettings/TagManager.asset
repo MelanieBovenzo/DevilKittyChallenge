@@ -7,14 +7,15 @@ TagManager:
   - Enemy
   - XP
   - Collectable
+  - DialogueController
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Enemy
+  - Wall
   - Water
   - UI
-  - Gun
+  - Enemy
   - 
   - 
   - 

@@ -3,6 +3,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.Splines;
 using UnityEngine.UI;
 using static UnityEditor.Rendering.MaterialUpgrader;
@@ -23,11 +24,14 @@ public class DialogueController : MonoBehaviour
     [SerializeField] string[] dialogue3list;
     [SerializeField] string[] dialogue4list;
 
-    [SerializeField] int textSpeed;
+    [SerializeField] float textSpeed;
     private bool isWriting;
     private string[] currentDialogue;
 
     int i;
+    int Index;
+
+    public bool isTalking = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -40,14 +44,20 @@ public class DialogueController : MonoBehaviour
         if (Input.GetButtonDown("Fire1")) {
             if (!isWriting)
             {
-                if (currentDialogue.Length >= i+1)
+                if (i + 1 <= currentDialogue.Length - 1)
                 {
                     i++;
+                    dialogueText.text = string.Empty;
                     WriteLine();
                 }
                 else
                 {
+                    isTalking = false;
                     dialogueCanvas.SetActive(false);
+                    if (Index == 3)
+                    {
+                        SceneManager.LoadScene("MenuScene");
+                    }
                 }
             }
             else
@@ -61,11 +71,14 @@ public class DialogueController : MonoBehaviour
 
     public void StartDialogue(int dialogueIndex)
     {
+        Index = dialogueIndex;
         dialogueText.text = string.Empty;
         speakerName1.text = string.Empty;
         speakerName2.text = string.Empty;
-        isWriting = false;
+        isWriting = true;
         i = 0;
+
+        isTalking = true;
 
         switch (dialogueIndex)
         {
@@ -83,6 +96,10 @@ public class DialogueController : MonoBehaviour
                 break;
         }
 
+        print(currentDialogue.Length);
+
+        dialogueCanvas.SetActive(true);
+
         WriteLine();
     }
     IEnumerator WriteLineCoroutine()
@@ -91,7 +108,7 @@ public class DialogueController : MonoBehaviour
         {
             isWriting = true;
             dialogueText.text += c;
-            yield return new WaitForSeconds(textSpeed);
+            yield return new WaitForSeconds(textSpeed * Time.deltaTime);
             isWriting = false;
         }
     }

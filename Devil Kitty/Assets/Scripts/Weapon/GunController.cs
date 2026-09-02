@@ -17,7 +17,9 @@ public class GunController : MonoBehaviour
     private Animator animator;
 
     public bool isSwinging = false;
-    
+
+    [SerializeField] DialogueController dialogueController;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,35 +30,37 @@ public class GunController : MonoBehaviour
 
     void Shoot()
     {
-        switch (weaponType)
-        {
-            case 2:
-                GameObject curBullet = Instantiate(bullet, transform.position, transform.rotation);
-                curBullet.transform.Rotate(new Vector3(0, 0, -90));
-                curBullet.GetComponent<BulletController>().damage = damage;
-                curBullet.GetComponent<BulletController>().speed = bulletSpeed;
-                break;
-            case 1:
-                animator.SetBool("SwingingSword", true);
-                isSwinging = true;
-                GetComponent<BoxCollider2D>().enabled = true;
-                break;
-            case 4:
-                animator.SetBool("SwingingSpear", true);
-                isSwinging = true;
-                GetComponent<BoxCollider2D>().enabled = true;
-                break;
-            case 5:
-                animator.SetBool("SwingingSword", true);
-                isSwinging = true;
-                GetComponent<BoxCollider2D>().enabled = true;
-                break;
-            default:
-                Debug.Log("Invalid Weapon Type!");
-                break;
+        if (!dialogueController.isTalking)
+        {    switch (weaponType)
+            {
+                case 2:
+                    GameObject curBullet = Instantiate(bullet, transform.position, transform.rotation);
+                    curBullet.transform.Rotate(new Vector3(0, 0, -90));
+                    curBullet.GetComponent<BulletController>().damage = damage;
+                    curBullet.GetComponent<BulletController>().speed = bulletSpeed;
+                    break;
+                case 1:
+                    animator.SetBool("SwingingSword", true);
+                    isSwinging = true;
+                    GetComponent<BoxCollider2D>().enabled = true;
+                    break;
+                case 4:
+                    animator.SetBool("SwingingSpear", true);
+                    isSwinging = true;
+                    GetComponent<BoxCollider2D>().enabled = true;
+                    break;
+                case 5:
+                    animator.SetBool("SwingingSword", true);
+                    isSwinging = true;
+                    GetComponent<BoxCollider2D>().enabled = true;
+                    break;
+                default:
+                    Debug.Log("Invalid Weapon Type!");
+                    break;
+            }
+            canShoot = false;
+            Invoke("AllowShoot", shotDelay);
         }
-        canShoot = false;
-        Invoke("AllowShoot", shotDelay);
     }
 
     void StopSwing()
