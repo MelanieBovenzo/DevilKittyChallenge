@@ -5,26 +5,29 @@ using UnityEngine.UI;
 
 public class ItemManager : MonoBehaviour
 {
+    [Header("Item Object References")]
     [SerializeField] ItemController item1;
     [SerializeField] ItemController item2;
     [SerializeField] ItemController item3;
 
-    [SerializeField] Sprite item1Sprite;
-    [SerializeField] Sprite item2Sprite;
-    [SerializeField] Sprite item3Sprite;
-    [SerializeField] Sprite item4Sprite;
-    [SerializeField] Sprite item5Sprite;
+    [Header("Item Images")]
+    public Sprite item1Sprite;
+    public Sprite item2Sprite;
+    public Sprite item3Sprite;
+    public Sprite item4Sprite;
+    public Sprite item5Sprite;
 
-    [SerializeField] int itemQuantity;
-
+    [Header("Script References")]
     [SerializeField] PlayerInventory inv;
     [SerializeField] PlayerHealth hp;
-
     [SerializeField] GunController gun1;
     [SerializeField] GunController gun2;
     [SerializeField] GunController gun3;
+    [SerializeField] BackpackController backpackController;
 
+    [Header("Misc")]
     [SerializeField] List<int> passiveItemTags;
+    [SerializeField] int itemQuantity;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -39,13 +42,16 @@ public class ItemManager : MonoBehaviour
 
     public void LevelUp()
     {
+        backpackController.OpenBackpack();
         hp.health += 0.5f;
         if (inv.weaponCount >= 3)
         {
-            List<int> itemTags = new List<int>();
-            itemTags.Add(gun1.weaponType);
-            itemTags.Add(gun2.weaponType);
-            itemTags.Add(gun3.weaponType);
+            List<int> itemTags = new List<int>
+            {
+                gun1.weaponType,
+                gun2.weaponType,
+                gun3.weaponType
+            };
             foreach (int passiveItem in passiveItemTags)
             {
                 itemTags.Add(passiveItem);
@@ -66,19 +72,19 @@ public class ItemManager : MonoBehaviour
             item3.itemTag = itemTags[random];
         }
         else
-            {
-            int random = Random.Range(1, itemQuantity+1);
+        {
+            int random = Random.Range(1, itemQuantity + 1);
             item1.itemTag = random;
 
             while (random == item1.itemTag)
             {
-                random = Random.Range(1, itemQuantity+1);
+                random = Random.Range(1, itemQuantity + 1);
             }
             item2.itemTag = random;
 
             while (random == item1.itemTag || random == item2.itemTag)
             {
-                random = Random.Range(1, itemQuantity+1);
+                random = Random.Range(1, itemQuantity + 1);
             }
             item3.itemTag = random;
         }

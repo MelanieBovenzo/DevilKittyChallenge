@@ -41,7 +41,8 @@ public class DialogueController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1")) {
+        if (Input.GetButtonDown("Fire1"))
+        {
             if (!isWriting)
             {
                 if (i + 1 <= currentDialogue.Length - 1)
@@ -95,8 +96,6 @@ public class DialogueController : MonoBehaviour
                 currentDialogue = dialogue4list;
                 break;
         }
-
-        print(currentDialogue.Length);
 
         dialogueCanvas.SetActive(true);
 

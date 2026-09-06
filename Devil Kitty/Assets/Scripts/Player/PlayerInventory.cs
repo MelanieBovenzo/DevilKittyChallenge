@@ -22,6 +22,8 @@ public class PlayerInventory : MonoBehaviour
     private int damageBuffCount;
 
     public int weaponCount = 1;
+
+    public List<int> inventoryTags;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -168,7 +170,7 @@ public class PlayerInventory : MonoBehaviour
                     buff.WeaponBuff("hammer", 0.1f);
                 }
                 break;
-
         }
+        inventoryTags.Add(tag);
     }
 }
