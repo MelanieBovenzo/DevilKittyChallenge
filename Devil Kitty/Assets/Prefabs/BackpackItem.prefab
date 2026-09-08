@@ -202,9 +202,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 8e4abebe4b8f7704bb0e896c9b2fbe29, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -341,6 +341,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9118634873001076681}
+  - component: {fileID: 1649483288964822044}
   m_Layer: 5
   m_Name: BackpackItem
   m_TagString: Untagged
@@ -370,3 +371,19 @@ RectTransform:
   m_AnchoredPosition: {x: -209.43365, y: 116.90311}
   m_SizeDelta: {x: 114.11821, y: 115.68689}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1649483288964822044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6537427538337361413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da35d9a4e7fc21e4085bfaf8441f175c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BackpackItem
+  itemTag: 0
+  nameText: {fileID: 3396812945556540792}
+  imageComponent: {fileID: 5404664206607919785}
+  itemImage: {fileID: 0}

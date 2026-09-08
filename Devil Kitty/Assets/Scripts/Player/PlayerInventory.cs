@@ -170,6 +170,12 @@ public class PlayerInventory : MonoBehaviour
                     buff.WeaponBuff("hammer", 0.1f);
                 }
                 break;
+            case 6:
+                buff.DefenseBuff("health", 0.5f);
+                break;
+            case 7:
+                buff.SpeedBuff(0.3f);
+                break;
         }
         inventoryTags.Add(tag);
     }

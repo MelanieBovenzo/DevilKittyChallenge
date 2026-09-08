@@ -85,7 +85,7 @@ public class PlayerBuffs : MonoBehaviour
     {
         if (type == "health")
         {
-            health.health += quantity;
+            health.maxHealth += quantity;
         }
         else if (type == "iFrames")
         {

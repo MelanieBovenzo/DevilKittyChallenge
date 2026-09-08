@@ -18,6 +18,7 @@ public class DialogueController : MonoBehaviour
     [SerializeField] Image image2;
 
     [SerializeField] GameObject dialogueCanvas;
+    [SerializeField] GameObject levelCanvas;
 
     [SerializeField] string[] dialogue1list;
     [SerializeField] string[] dialogue2list;
@@ -53,7 +54,10 @@ public class DialogueController : MonoBehaviour
                 }
                 else
                 {
-                    isTalking = false;
+                    if (!levelCanvas.activeSelf)
+                    {
+                        isTalking = false;
+                    }
                     dialogueCanvas.SetActive(false);
                     if (Index == 3)
                     {
@@ -76,10 +80,8 @@ public class DialogueController : MonoBehaviour
         dialogueText.text = string.Empty;
         speakerName1.text = string.Empty;
         speakerName2.text = string.Empty;
-        isWriting = true;
-        i = 0;
-
         isTalking = true;
+        i = 0;
 
         switch (dialogueIndex)
         {

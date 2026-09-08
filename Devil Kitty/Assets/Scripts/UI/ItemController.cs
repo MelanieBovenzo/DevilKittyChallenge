@@ -34,13 +34,19 @@ public class ItemController : MonoBehaviour
                 displayName = "Pistola de laser";
                 break;
             case 3:
-                displayName = "+1 dano";
+                displayName = "+ Dano";
                 break;
             case 4:
                 displayName = "Lança Doce";
                 break;
             case 5:
                 displayName = "Martelo de Pirulito";
+                break;
+            case 6:
+                displayName = "+ Vida";
+                break;
+            case 7:
+                displayName = "+ Velocidade de Movimento";
                 break;
             default:
                 displayName = "ERRO!";

@@ -27,7 +27,7 @@ public class PlayerExperience : MonoBehaviour
     void Update()
     {
         xpText.text = "XP: " + xp.ToString();
-        levelText.text = "NÍVEL: " + level.ToString() + "\n XP Restate: " + (Mathf.Ceil(Mathf.Pow((level - 1) * 1.1f, 2) + 10) - xp);
+        levelText.text = "NÍVEL: " + level.ToString() + "\n XP Restante: " + (Mathf.Ceil(Mathf.Pow((level - 1) * 1.1f, 2) + 10) - xp);
 
         if (xp >= Mathf.Ceil(Mathf.Pow((level-1) * 1.1f, 2) + 10))
         {

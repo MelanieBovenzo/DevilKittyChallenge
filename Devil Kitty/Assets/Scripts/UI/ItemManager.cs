@@ -16,6 +16,8 @@ public class ItemManager : MonoBehaviour
     public Sprite item3Sprite;
     public Sprite item4Sprite;
     public Sprite item5Sprite;
+    public Sprite item6Sprite;
+    public Sprite item7Sprite;
 
     [Header("Script References")]
     [SerializeField] PlayerInventory inv;
@@ -106,6 +108,12 @@ public class ItemManager : MonoBehaviour
             case 5:
                 item1.GetComponent<UnityEngine.UI.Image>().sprite = item5Sprite;
                 break;
+            case 6:
+                item1.GetComponent<UnityEngine.UI.Image>().sprite = item6Sprite;
+                break;
+            case 7:
+                item1.GetComponent<UnityEngine.UI.Image>().sprite = item7Sprite;
+                break;
         }
         switch (item2.itemTag)
         {
@@ -124,6 +132,12 @@ public class ItemManager : MonoBehaviour
             case 5:
                 item2.GetComponent<UnityEngine.UI.Image>().sprite = item5Sprite;
                 break;
+            case 6:
+                item2.GetComponent<UnityEngine.UI.Image>().sprite = item6Sprite;
+                break;
+            case 7:
+                item2.GetComponent<UnityEngine.UI.Image>().sprite = item7Sprite;
+                break;
         }
         switch (item3.itemTag)
         {
@@ -141,6 +155,12 @@ public class ItemManager : MonoBehaviour
                 break;
             case 5:
                 item3.GetComponent<UnityEngine.UI.Image>().sprite = item5Sprite;
+                break;
+            case 6:
+                item3.GetComponent<UnityEngine.UI.Image>().sprite = item6Sprite;
+                break;
+            case 7:
+                item3.GetComponent<UnityEngine.UI.Image>().sprite = item7Sprite;
                 break;
         }
     }
