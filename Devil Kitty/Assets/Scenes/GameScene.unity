@@ -956,7 +956,7 @@ GameObject:
   - component: {fileID: 425662037}
   - component: {fileID: 425662036}
   m_Layer: 5
-  m_Name: LevelCanvas
+  m_Name: LevelUpCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1047,6 +1047,81 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &510456520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 510456521}
+  - component: {fileID: 510456523}
+  - component: {fileID: 510456522}
+  m_Layer: 5
+  m_Name: BackpackItems
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &510456521
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510456520}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1314806188}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 571.2917, y: 546.3311}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &510456522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510456520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &510456523
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510456520}
+  m_CullTransparentMesh: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2336,7 +2411,7 @@ MonoBehaviour:
   itemObject: {fileID: 6537427538337361413, guid: 1b75a1cdde19234439f12dc141320863, type: 3}
   itemManager: {fileID: 965670233}
   inv: {fileID: 1031434112}
-  backpackPanel: {fileID: 1314806188}
+  backpackPanel: {fileID: 510456521}
 --- !u!1 &880374541
 GameObject:
   m_ObjectHideFlags: 0
@@ -2715,8 +2790,8 @@ MonoBehaviour:
   item3Sprite: {fileID: 21300000, guid: 8e4abebe4b8f7704bb0e896c9b2fbe29, type: 3}
   item4Sprite: {fileID: 994079330907464208, guid: 9655b9cfe5e69b747a96913455448945, type: 3}
   item5Sprite: {fileID: 2137972168551959801, guid: 49e71d20217755942be19b4c486827e4, type: 3}
-  item6Sprite: {fileID: -8630923909508717717, guid: b535529caf2dc6c4180774643993de94, type: 3}
-  item7Sprite: {fileID: 1164777188793213590, guid: 85eca42e54850e9488f94babd3be3b91, type: 3}
+  item6Sprite: {fileID: 21300000, guid: b535529caf2dc6c4180774643993de94, type: 3}
+  item7Sprite: {fileID: 21300000, guid: 85eca42e54850e9488f94babd3be3b91, type: 3}
   inv: {fileID: 1031434112}
   hp: {fileID: 1031434111}
   gun1: {fileID: 1333712799}
@@ -4331,6 +4406,7 @@ RectTransform:
   m_Children:
   - {fileID: 771826106}
   - {fileID: 875037715}
+  - {fileID: 510456521}
   m_Father: {fileID: 425662039}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
