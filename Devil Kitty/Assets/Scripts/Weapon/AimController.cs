@@ -49,17 +49,17 @@ public class AimController : MonoBehaviour
             Vector3 diff = closestPosition - center.position;
             diff.Normalize();
             float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-            if(!gun1.isSwinging)
-            { 
-                aimTransform.rotation = Quaternion.Euler(0f, 0f, rot_z); 
+            if (!gun1.isSwinging)
+            {
+                aimTransform.rotation = Quaternion.Euler(0f, 0f, rot_z);
             }
             if (!gun2.isSwinging)
             {
-                aim2Transform.rotation = Quaternion.Euler(0f, 0f, rot_z + 30);
+                aim2Transform.rotation = Quaternion.Euler(0f, 0f, rot_z + 20);
             }
             if (!gun3.isSwinging)
             {
-                aim3Transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 30);
+                aim3Transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 20);
             }
         }
     }
