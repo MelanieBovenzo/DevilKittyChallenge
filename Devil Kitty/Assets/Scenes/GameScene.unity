@@ -374,6 +374,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnerController
   enemyObject: {fileID: 1665513665171802074, guid: 60cfb620a23390047a7df31530bb4458, type: 3}
   xp: {fileID: 1031434110}
+  normalEnemySprite: {fileID: 21300000, guid: 713db8b67f0d1a645a08b76bd9d894d7, type: 3}
+  fastEnemySprite: {fileID: 21300000, guid: 3b758b9ee3086ef4ea2ce3dc5d0dcda8, type: 3}
+  slowEnemySprite: {fileID: 21300000, guid: 19e2c46ef4d7c9a45afb055bc5d2246a, type: 3}
 --- !u!1 &134952226
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,6 +702,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnerController
   enemyObject: {fileID: 1665513665171802074, guid: 60cfb620a23390047a7df31530bb4458, type: 3}
   xp: {fileID: 1031434110}
+  normalEnemySprite: {fileID: 21300000, guid: 713db8b67f0d1a645a08b76bd9d894d7, type: 3}
+  fastEnemySprite: {fileID: 21300000, guid: 3b758b9ee3086ef4ea2ce3dc5d0dcda8, type: 3}
+  slowEnemySprite: {fileID: 21300000, guid: 19e2c46ef4d7c9a45afb055bc5d2246a, type: 3}
 --- !u!1 &290223767
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,7 +846,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -20
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 6235878154100928769, guid: 2949469d29039b44c8260d36157e32e1, type: 3}
   m_Color: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -860,9 +866,9 @@ Transform:
   m_GameObject: {fileID: 325146307}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 50, y: 40, z: 40}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: -0.74, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.2, z: 1.2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2098419439}
   - {fileID: 1125947509}
@@ -904,8 +910,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 442, y: 96}
-  m_SizeDelta: {x: 247.1445, y: 413.2075}
+  m_AnchoredPosition: {x: 450, y: 17}
+  m_SizeDelta: {x: 433.0495, y: 413.2075}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &364933350
 MonoBehaviour:
@@ -927,9 +933,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 6faf7ad53401bef40ba4ecdb7b156ba4, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1206,7 +1212,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.015686275, g: 0.007843138, b: 0.043137256, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1365,7 +1371,7 @@ MonoBehaviour:
   dialogue2list:
   - "kVoc\xEA subiu de n\xEDvel, muito bem."
   - cObrigada! ;)
-  - "kAgora \xE9 s\xF3 chegar no n\xEDvel 15 que voc\xEA deve conseguir derrotar
+  - "kAgora \xE9 s\xF3 chegar no n\xEDvel 12 que voc\xEA deve conseguir derrotar
     toda essa leva de monstros."
   - "cBeleza, e o que \xE9 essa \"loja\"? Eu tenho que comprar coisas no meu pr\xF3prio
     sonho? :o"
@@ -1384,7 +1390,7 @@ MonoBehaviour:
     cont\xEA-las confortavelmente."
   - "cEita, ent\xE3o eu vou ter que ficar mais forte ainda? :|"
   - kEm breve...
-  textSpeed: 5
+  textSpeed: 12
   isTalking: 0
 --- !u!1 &565213256
 GameObject:
@@ -2079,6 +2085,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnerController
   enemyObject: {fileID: 1665513665171802074, guid: 60cfb620a23390047a7df31530bb4458, type: 3}
   xp: {fileID: 1031434110}
+  normalEnemySprite: {fileID: 21300000, guid: 713db8b67f0d1a645a08b76bd9d894d7, type: 3}
+  fastEnemySprite: {fileID: 21300000, guid: 3b758b9ee3086ef4ea2ce3dc5d0dcda8, type: 3}
+  slowEnemySprite: {fileID: 21300000, guid: 19e2c46ef4d7c9a45afb055bc5d2246a, type: 3}
 --- !u!1 &806961827
 GameObject:
   m_ObjectHideFlags: 0
@@ -2089,6 +2098,7 @@ GameObject:
   m_Component:
   - component: {fileID: 806961828}
   - component: {fileID: 806961829}
+  - component: {fileID: 806961830}
   m_Layer: 0
   m_Name: PlayerSprite
   m_TagString: Untagged
@@ -2160,17 +2170,39 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 8500252004335470, guid: 04248eb1e78c35c488452d517f9af3c2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e57caa7dd60d28e49a1751c78051b110, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 2.5, y: 2.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!95 &806961830
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806961827}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 506e2129236c42042bcefefdc2c24411, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &817862515
 GameObject:
   m_ObjectHideFlags: 0
@@ -2293,6 +2325,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnerController
   enemyObject: {fileID: 1665513665171802074, guid: 60cfb620a23390047a7df31530bb4458, type: 3}
   xp: {fileID: 1031434110}
+  normalEnemySprite: {fileID: 21300000, guid: 713db8b67f0d1a645a08b76bd9d894d7, type: 3}
+  fastEnemySprite: {fileID: 21300000, guid: 3b758b9ee3086ef4ea2ce3dc5d0dcda8, type: 3}
+  slowEnemySprite: {fileID: 21300000, guid: 19e2c46ef4d7c9a45afb055bc5d2246a, type: 3}
 --- !u!1 &863627696
 GameObject:
   m_ObjectHideFlags: 0
@@ -2339,6 +2374,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnerController
   enemyObject: {fileID: 1665513665171802074, guid: 60cfb620a23390047a7df31530bb4458, type: 3}
   xp: {fileID: 1031434110}
+  normalEnemySprite: {fileID: 21300000, guid: 713db8b67f0d1a645a08b76bd9d894d7, type: 3}
+  fastEnemySprite: {fileID: 21300000, guid: 3b758b9ee3086ef4ea2ce3dc5d0dcda8, type: 3}
+  slowEnemySprite: {fileID: 21300000, guid: 19e2c46ef4d7c9a45afb055bc5d2246a, type: 3}
 --- !u!1 &865877710
 GameObject:
   m_ObjectHideFlags: 0
@@ -2456,9 +2494,9 @@ Transform:
   m_GameObject: {fileID: 880374541}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.002, y: -0.552, z: 0}
-  m_LocalScale: {x: -0.104327336, y: 1.0168849, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -0.1517, y: -8.35, z: 0}
+  m_LocalScale: {x: 1, y: -15.940632, z: -9.585216}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 325146309}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
@@ -2751,6 +2789,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnerController
   enemyObject: {fileID: 1665513665171802074, guid: 60cfb620a23390047a7df31530bb4458, type: 3}
   xp: {fileID: 1031434110}
+  normalEnemySprite: {fileID: 21300000, guid: 713db8b67f0d1a645a08b76bd9d894d7, type: 3}
+  fastEnemySprite: {fileID: 21300000, guid: 3b758b9ee3086ef4ea2ce3dc5d0dcda8, type: 3}
+  slowEnemySprite: {fileID: 21300000, guid: 19e2c46ef4d7c9a45afb055bc5d2246a, type: 3}
 --- !u!1 &965670231
 GameObject:
   m_ObjectHideFlags: 0
@@ -2815,6 +2856,7 @@ MonoBehaviour:
   gun2: {fileID: 1181973948}
   gun3: {fileID: 1279998597}
   backpackController: {fileID: 875037716}
+  buff: {fileID: 1031434113}
   passiveItemTags: 030000000600000007000000
   itemQuantity: 7
 --- !u!1 &985517356
@@ -3084,6 +3126,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   dialogueController: {fileID: 529954512}
   speed: 6
+  animator: {fileID: 806961830}
+  spriteRenderer: {fileID: 806961829}
 --- !u!61 &1031434105
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3207,7 +3251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b31cc3e28d23d141b9942e6dea13f8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerExperience
-  xp: 9
+  xp: 0
   level: 1
   XPSpeed: 40
   xpText: {fileID: 196234556}
@@ -3302,17 +3346,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050527462}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1115792186}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -442, y: 96}
-  m_SizeDelta: {x: 247.1445, y: 413.2075}
+  m_AnchoredPosition: {x: -450, y: 20}
+  m_SizeDelta: {x: 433.0495, y: 413.2075}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1050527464
 MonoBehaviour:
@@ -3334,9 +3378,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 8403a39432757164d9a1295da6f47124, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -3559,9 +3603,9 @@ Transform:
   m_GameObject: {fileID: 1125947508}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.00106, y: 0.552, z: 0}
-  m_LocalScale: {x: -0.104327336, y: 1.0168849, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -0.15, y: 7.2, z: 0}
+  m_LocalScale: {x: 0.9453, y: -18.62741, z: -9.585216}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 325146309}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
@@ -3892,7 +3936,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -158}
+  m_AnchoredPosition: {x: 0, y: -198}
   m_SizeDelta: {x: -100.6405, y: -440.7494}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1235990383
@@ -4614,7 +4658,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1333712796}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -5540,9 +5584,9 @@ Transform:
   m_GameObject: {fileID: 2091995741}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.555, y: 0, z: 0}
-  m_LocalScale: {x: -0.104327336, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 7.36, y: -0.8103, z: 0}
+  m_LocalScale: {x: 1, y: -16.83892, z: -9.585216}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 325146309}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5679,9 +5723,9 @@ Transform:
   m_GameObject: {fileID: 2098419438}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.55216, y: 0, z: 0}
-  m_LocalScale: {x: -0.104327336, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -7.28, y: -0.68, z: 0}
+  m_LocalScale: {x: 1, y: -17.315182, z: -9.585216}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 325146309}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

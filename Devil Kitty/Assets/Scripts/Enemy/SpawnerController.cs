@@ -5,6 +5,10 @@ public class SpawnerController : MonoBehaviour
     [SerializeField] GameObject enemyObject;
     [SerializeField] PlayerExperience xp;
 
+    [SerializeField] Sprite normalEnemySprite;
+    [SerializeField] Sprite fastEnemySprite;
+    [SerializeField] Sprite slowEnemySprite;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,10 +27,11 @@ public class SpawnerController : MonoBehaviour
     {
         GameObject enemy = Instantiate(enemyObject, transform.position, transform.rotation);
         EnemyController enemyController = enemy.GetComponent<EnemyController>();
+        enemy.GetComponent<SpriteRenderer>().sprite = normalEnemySprite;
 
         if (xp.level <= 3)
         {
-            // SPRITE: NORMAL
+            enemy.GetComponent<SpriteRenderer>().sprite = normalEnemySprite;
             enemyController.health = 5 + xp.level;
             enemyController.speed = 4 + xp.level / 5;
             enemyController.damage = 1 + xp.level / 7;
@@ -36,7 +41,7 @@ public class SpawnerController : MonoBehaviour
             int random = Random.Range(0, 9);
             if (random <= Mathf.Floor(xp.level / 2))
             {
-                // SPRITE: INIMIGO RAPIDO
+                enemy.GetComponent<SpriteRenderer>().sprite = fastEnemySprite;
                 enemyController.health = 4 + xp.level;
                 enemyController.speed = 6 + xp.level / 4;
                 enemyController.damage = 0.8f + xp.level / 8;
@@ -47,21 +52,21 @@ public class SpawnerController : MonoBehaviour
             int random = Random.Range(0, 25);
             if (random <= Mathf.Floor(xp.level / 3))
             {
-                // SPRITE: INIMIGO RAPIDO
+                enemy.GetComponent<SpriteRenderer>().sprite = fastEnemySprite;
                 enemyController.health = 4 + xp.level;
                 enemyController.speed = 6 + xp.level / 4;
-                enemyController.damage = 2 + xp.level / 8;
+                enemyController.damage = 0.8f + xp.level / 8;
             }
             else if (random > Mathf.Floor(xp.level / 2))
             {
-                // SPRITE: NORMAL
+                enemy.GetComponent<SpriteRenderer>().sprite = normalEnemySprite;
                 enemyController.health = 5 + xp.level;
                 enemyController.speed = 4 + xp.level / 5;
                 enemyController.damage = 1 + xp.level / 7;
             }
             else
             {
-                // SPRITE: LENTO
+                enemy.GetComponent<SpriteRenderer>().sprite = slowEnemySprite;
                 enemyController.health = 8 + xp.level * 3;
                 enemyController.speed = 2 + xp.level / 5;
                 enemyController.damage = 3 + xp.level / 7;

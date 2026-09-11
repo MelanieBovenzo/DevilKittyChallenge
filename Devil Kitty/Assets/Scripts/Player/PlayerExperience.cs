@@ -43,7 +43,7 @@ public class PlayerExperience : MonoBehaviour
                 dialogueController.StartDialogue(2);
             }
 
-            if (level == 15)
+            if (level == 12)
             {
                 dialogueController.StartDialogue(4);
             }

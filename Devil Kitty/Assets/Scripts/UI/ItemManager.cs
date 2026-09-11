@@ -26,6 +26,7 @@ public class ItemManager : MonoBehaviour
     [SerializeField] GunController gun2;
     [SerializeField] GunController gun3;
     [SerializeField] BackpackController backpackController;
+    [SerializeField] PlayerBuffs buff;
 
     [Header("Misc")]
     [SerializeField] List<int> passiveItemTags;
@@ -46,6 +47,7 @@ public class ItemManager : MonoBehaviour
     {
         backpackController.OpenBackpack();
         hp.health += 0.5f;
+        buff.WeaponBuff("delay", 1.067f);
         if (inv.weaponCount >= 3)
         {
             List<int> itemTags = new List<int>

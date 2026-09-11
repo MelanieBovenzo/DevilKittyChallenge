@@ -59,7 +59,7 @@ public class DialogueController : MonoBehaviour
                         isTalking = false;
                     }
                     dialogueCanvas.SetActive(false);
-                    if (Index == 3)
+                    if (Index == 3 || Index == 4)
                     {
                         SceneManager.LoadScene("MenuScene");
                     }
@@ -121,10 +121,14 @@ public class DialogueController : MonoBehaviour
             case 'c':
                 speakerName1.text = "Cindy";
                 speakerName2.text = string.Empty;
+                image1.gameObject.SetActive(true);
+                image2.gameObject.SetActive(false);
                 break;
             case 'k':
                 speakerName1.text = string.Empty;
                 speakerName2.text = "Kitty";
+                image2.gameObject.SetActive(true);
+                image1.gameObject.SetActive(false);
                 break;
         }
         StartCoroutine("WriteLineCoroutine");
