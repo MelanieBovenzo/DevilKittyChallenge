@@ -3,12 +3,16 @@ using System.Transactions;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerExperience : MonoBehaviour
 {
     public int xp;
     public int level;
     [SerializeField] float XPSpeed;
+
+    [SerializeField] AudioClip xpAudio;
+    private AudioSource audioSource;
 
     [SerializeField] TextMeshProUGUI xpText;
     [SerializeField] TextMeshProUGUI levelText;
@@ -20,7 +24,7 @@ public class PlayerExperience : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -33,6 +37,9 @@ public class PlayerExperience : MonoBehaviour
         {
             xp = 0;
             level++;
+
+            audioSource.clip = xpAudio;
+            audioSource.Play();
 
             levelCanvas.SetActive(true);
             itemManager.LevelUp();

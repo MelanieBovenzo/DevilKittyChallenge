@@ -34,6 +34,7 @@ public class EnemyController : MonoBehaviour
 
         if (health <= 0)
         {
+            dialogueController.EnemyDeath();
             Instantiate(XP, transform.position, transform.rotation);
             Destroy(gameObject);
         }

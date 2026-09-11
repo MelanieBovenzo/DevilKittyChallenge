@@ -19,12 +19,17 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] DialogueController dialogueController;
 
     private bool dead = false;
+
+    [SerializeField] AudioClip dmgAudio;
+    private AudioSource audioSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         health = startingHealth;
         maxHealth = startingHealth;
         iFrameTime = startingIFrames;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -55,6 +60,9 @@ public class PlayerHealth : MonoBehaviour
             Invoke("RemoveInvul", iFrameTime);
             health -= dmg;
             StartCoroutine(iFrames());
+
+            audioSource.clip = dmgAudio;
+            audioSource.Play();
         }
     }
 

@@ -6,7 +6,6 @@ using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.Splines;
 using UnityEngine.UI;
-using static UnityEditor.Rendering.MaterialUpgrader;
 
 public class DialogueController : MonoBehaviour
 {
@@ -33,10 +32,12 @@ public class DialogueController : MonoBehaviour
     int Index;
 
     public bool isTalking = false;
+
+    private AudioSource audioSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -132,5 +133,10 @@ public class DialogueController : MonoBehaviour
                 break;
         }
         StartCoroutine("WriteLineCoroutine");
+    }
+
+    public void EnemyDeath()
+    {
+        audioSource.Play();
     }
 }
